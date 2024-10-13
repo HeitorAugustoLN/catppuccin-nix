@@ -159,4 +159,6 @@ in
     assertion = lib.versionAtLeast ctp.getModuleRelease version;
     message = "`catppuccin/nix` requires at least version ${version} of NixOS/home-manager";
   };
+
+  palette = lib.importJSON "${config.catppuccin.sources.palette}/palette.json";
 }

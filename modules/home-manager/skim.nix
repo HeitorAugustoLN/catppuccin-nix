@@ -1,9 +1,8 @@
 { config, lib, ... }:
 let
-  inherit (config.catppuccin) sources;
   cfg = config.programs.skim.catppuccin;
   enable = cfg.enable && config.programs.skim.enable;
-  palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
+  palette = lib.ctp.palette.${cfg.flavor}.colors;
 in
 {
   options.programs.skim.catppuccin = lib.ctp.mkCatppuccinOpt { name = "skim"; };
